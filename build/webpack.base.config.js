@@ -71,9 +71,7 @@ module.exports = {
     'vue-router': 'VueRouter',
     'vuex': 'Vuex',
     'axios': 'axios',
-    'vue-server-renderer': 'VueServerRenderer',
-    'marked': 'marked',
-    'highlight': 'highlight'
+    'vue-server-renderer': 'VueServerRenderer'
   },
   plugins: isProd
     ? [

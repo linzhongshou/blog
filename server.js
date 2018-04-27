@@ -7,6 +7,7 @@ const compression = require('compression')
 const microcache = require('route-cache')
 const resolve = file => path.resolve(__dirname, file)
 const { createBundleRenderer } = require('vue-server-renderer')
+const proxyMiddleware = require('http-proxy-middleware')
 
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
@@ -15,6 +16,11 @@ const serverInfo =
   `vue-server-renderer/${require('vue-server-renderer/package.json').version}`
 
 const app = express()
+
+// 设置请求代理
+app.middleware = [
+  proxyMiddleware(['/apis'], {target: 'http://app:9090', changeOrigin: true, pathRewrite: {'^/apis': ''}})
+]
 
 function createRenderer (bundle, options) {
   // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
@@ -69,6 +75,8 @@ app.use('/dist', serve('./dist', true))
 app.use('/public', serve('./public', true))
 app.use('/manifest.json', serve('./manifest.json', true))
 app.use('/service-worker.js', serve('./dist/service-worker.js'))
+app.use(app.middleware)
+// app.use('/apis', proxyMiddleware({target: 'http://localhost:9090', changeOrigin: true, pathRewrite: {'^/apis': ''} }))
 
 // since this app has no user-specific content, every page is micro-cacheable.
 // if your app involves user-specific content, you need to implement custom
