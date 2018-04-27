@@ -1,0 +1,17 @@
+# A ssr template base on offical example of hackernews
+
+## run instructions
+
+``` bash
+# install dependencies
+npm install # or yarn
+
+# serve in dev mode, with hot reload at localhost:8080
+npm run dev
+
+# build for production
+npm run build
+
+# serve in production mode
+npm start
+```
