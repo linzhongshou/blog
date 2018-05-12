@@ -8,7 +8,7 @@
 .footer
   background-color #696969
   height 40px
-  position relative
+  position absolute
   bottom 0
   left 0
   right 0

@@ -1,7 +1,9 @@
 import {
   fetchArticlePage,
   fetchAllCategories,
-  fetchArticle
+  fetchArticle,
+  submitComment,
+  fetchComments
 } from '../api'
 
 export default {
@@ -15,5 +17,13 @@ export default {
 
   FETCH_ARTICLE: ({ commit, dispatch, state }, { id }) => {
     return fetchArticle(id)
+  },
+
+  SUBMIT_COMMENT: ({ commit, dispatch, state },  comment ) => {
+    return submitComment(comment)
+  },
+
+  FETCH_COMMENTS: ({ commit, dispatch, state },  { articleId } ) => {
+    return fetchComments(articleId)
   }
 }

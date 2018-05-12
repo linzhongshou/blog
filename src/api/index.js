@@ -14,3 +14,11 @@ export function fetchAllCategories() {
 export function fetchArticle(id) {
   return axios.get('/apis/article/' + id)
 }
+
+export function submitComment(comment) {
+  return axios.post('/apis/comment', comment, { headers: {"Content-Type": "application/json;charset=utf-8;"} })
+}
+
+export function fetchComments(articleId) {
+  return axios.get('/apis/comment/' + articleId)
+}

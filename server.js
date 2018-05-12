@@ -19,7 +19,7 @@ const app = express()
 
 // 设置请求代理
 app.middleware = [
-  proxyMiddleware(['/apis'], {target: 'http://app:9090', changeOrigin: true, pathRewrite: {'^/apis': ''}})
+  proxyMiddleware(['/apis'], {target: 'http://localhost:9090', changeOrigin: true, pathRewrite: {'^/apis': ''}})
 ]
 
 function createRenderer (bundle, options) {
@@ -76,7 +76,6 @@ app.use('/public', serve('./public', true))
 app.use('/manifest.json', serve('./manifest.json', true))
 app.use('/service-worker.js', serve('./dist/service-worker.js'))
 app.use(app.middleware)
-// app.use('/apis', proxyMiddleware({target: 'http://localhost:9090', changeOrigin: true, pathRewrite: {'^/apis': ''} }))
 
 // since this app has no user-specific content, every page is micro-cacheable.
 // if your app involves user-specific content, you need to implement custom

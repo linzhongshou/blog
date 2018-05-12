@@ -4,6 +4,7 @@
     <index-right></index-right>
   </div>
 </template>
+
 <script>
 const IndexLeft = () => import('../components/Index_left.vue')
 const IndexRight = () => import('../components/Index_right.vue')

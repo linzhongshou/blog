@@ -1,5 +1,5 @@
 <template>
-  <div class="am-g am-g-fixed blog-fixed">
+  <div class="am-about am-g am-g-fixed blog-fixed">
 
     <h2 class="profile">个人简介</h2>
     <hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style>
-.am-g {
+.am-about {
   text-align: center;
 }
 
@@ -75,11 +75,6 @@ export default {
 .am-figure img {
   width: 10rem;
   border-radius: 50%;
-}
-
-.am-badge {
-  width: 70%;
-  margin: 0.3em 0px;
 }
 
 .progress_container {

@@ -1,16 +1,17 @@
 <template>
   <div class="am-u-md-8 am-u-sm-12">
 
-    <article class="am-g blog-entry-article" v-for="article in articles">
-      <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-          <img src="/dist/static/i/f10.jpg" alt="" class="am-u-sm-12">
-      </div>
-      <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-          <span><a href="javascript:void(0);" class="blog-color" @click="categoryClick(article.category.id)">{{ article.category.name }} &nbsp;</a></span>
-          <span>{{ dateFormat(article.createDate) }}</span>
-          <h1><router-link target="_blank" :to="{ path: '/article/' + article.id }">{{ article.title }}</router-link></h1>
-          <p class="summary">{{ article.summary }}</p>
-          <p><a href="" class="blog-continue">continue reading</a></p>
+    <article class="am-g blog-entry-article article" v-for="article in articles">
+      <div class="am-u-lg-12 am-u-md-12 am-u-sm-12 blog-entry-text">
+          <div class="title-container">
+            <span class="title-label am-badge am-badge-success am-radius">{{ article.category.name }}</span>
+            <span class="title-content"><router-link target="_blank" :to="{ path: '/article/' + article.id }">{{ article.title }}</router-link></span>
+          </div>
+          <div class="summary">{{ article.summary }}</div>
+          <div class="info-bar">
+            <i class="am-icon-clock-o">{{ dateFormat(article.createDate) }}</i>
+            <i class="am-icon-eye">浏览 ( 100 )</i>
+          </div>
       </div>
     </article>
     
@@ -96,19 +97,16 @@ export default {
 </script>
 
 <style>
-.page_disabled {
-  background-color: #e6e6e6 !important;
-  color: inherit;
-  cursor: default;
-}
-.page_disabled a:hover {
-  color: inherit;
-}
-.page_disabled a:visited {
-  color: inherit;
-}
+.page_disabled { background-color: #e6e6e6 !important; color: inherit; cursor: default }
+.page_disabled a:hover { color: inherit; }
+.page_disabled a:visited { color: inherit }
 
-.summary {
-  word-wrap: break-word;
-}
+.blog-entry-text { text-align: left; }
+.summary { word-wrap: break-word; text-indent: 2em; }
+.article { background-color: #ffffff; }
+.info-bar { float: right; font-size: 0.7em; }
+.info-bar i { margin: 0px 3px; padding-left: 0.5em;}
+
+.title-content { font-size: 1.5em; font-weight: bold; padding: 0px 0.5em; }
+.title-time { font-size: 0.7em; }
 </style>

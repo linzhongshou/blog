@@ -57,3 +57,8 @@ export default {
   }
 };
 </script>
+
+<style>
+.blog-sidebar-widget { background-color: #ffffff; }
+.blog-title span { border-top: 2px solid #e5e5e5; }
+</style>

@@ -50,7 +50,7 @@ export default {
 
 
 <style>
-.header { border-bottom: 1px solid #e5e5e5; margin-bottom: 1em; }
+.header { border-bottom: 1px solid #e5e5e5; margin-bottom: 1em; background-color: #ffffff; }
 .am-btn-success { background-color: #10D07A; border-color: #10D07A !important; }
 .router-link-exact-active a { color: #10D07A; }
 </style>
